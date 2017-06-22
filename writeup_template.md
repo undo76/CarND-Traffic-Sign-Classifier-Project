@@ -1,12 +1,4 @@
-#**Traffic Sign Recognition** 
-
-##Writeup Template
-
-###You can use this file as a template for your writeup if you want to submit it as a markdown file, but feel free to use some other method and submit a pdf if you prefer.
-
----
-
-**Build a Traffic Sign Recognition Project**
+# Traffic Sign Recognition
 
 The goals / steps of this project are the following:
 * Load the data set (see below for links to the project data set)
@@ -21,6 +13,12 @@ The goals / steps of this project are the following:
 
 [image1]: ./imgs/fig-1 "Visualization"
 [image2]: ./imgs/fig-2 "Histogram"
+[image3]: ./imgs/fig-3 "Preprocessing"
+[image4]: ./imgs/fig-4 "Learning curves"
+[image5]: ./imgs/fig-1 "Confusion matrix"
+[image6]: ./imgs/fig-2 ""
+[image7]: ./imgs/fig-1 "Visualization"
+[image8]: ./imgs/fig-2 "Histogram"
 
 [image2]: ./examples/grayscale.jpg "Grayscaling"
 [image3]: ./examples/random_noise.jpg "Random Noise"
