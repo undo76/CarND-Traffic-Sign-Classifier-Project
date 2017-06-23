@@ -58,12 +58,9 @@ I plot the frequency of the traffic signs in the different data sets.
 
 #### 1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. 
 
+As a first step, I decided to standarize every image to have mean = 0 and std = 1. This will center and scale the range of the features (pixels) to be uniform. This will help the training process in two ways: 1) It will equalized the inputs reducing the sensibility to different light conditions and contrast. 2) It will unskew the distribution of data, reducing the oscillations due to the different gradients magnitudes. (This is a bit less important as I am using the Adam optimizer that has individual learning rates for each parameter and can compensate automatically for disparity of feature scales). 
 
-
-(OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, and provide example images of the additional data. Then describe the characteristics of the augmented training set like number of images in the set, number of images for each class, etc.)
-
-
-As a first step, I decided to standarize every image to have mean = 0 and std = 1. I also experimented with grayscale images, but the result didn't varied a lot.
+I also experimented with grayscale images, but the result didn't varied a lot.
 
 <pre>
 <code>
@@ -80,8 +77,7 @@ Here is an example of a traffic sign image after standarizing.
 
 ![image3]
 
-I also experimented with augmentation of the data set adding noise, but the accuracy didn't improve a lot, while making the training slower. In addition, through simple inspection, it seems that the training dataset has already been augmented with noise and affine transformations, so it doesn't make too much sense to add similar augmentation transformations again. Check the notebook for additional details.
-
+I also experimented with augmentation of the data set adding noise, but the accuracy didn't improve a lot, while making the training slower. In addition, through simple inspection, it seems that the training dataset has already been augmented with noise and affine transformations, so it doesn't make too much sense to add similar transformations again. Check the notebook for additional details.
 
 
 #### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
@@ -125,7 +121,6 @@ My final model consisted of the following layers:
 | Dropout               |                                                     |
 | Dense                	| outputs #classes (43), Linear                       |
 | Softmax				        | (Calculated with the loss)                          |
-||
  
 
 #### 3. Describe how you trained your model.
@@ -227,9 +222,17 @@ Here are five German traffic signs that I found on the web:
 
 ![image6] 
 
-We see that we need to center and crop these images in order to be used by our NN. This step is done manually. 
+
+We see that we need to center and crop these images in order to be used by our NN. This step is done manually. These are the challenges that the classifier will have to face:
+
+1. Low resolution of the sign. Dirt.
+2. This one has almost perfect conditions. It shouldn't be problematic.
+3. Background elements. Bad lighting conditions. 
+4. The sign is not completely vertical. There is also a sticker on it.
+5. Not completely vertical. There is a shadow that could be problematic.
 
 ![image7]
+
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set.
 
