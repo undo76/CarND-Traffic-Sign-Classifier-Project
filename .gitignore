@@ -4,3 +4,9 @@ data
 models
 *.swp
 *.p
+traffic-signs-data.zip
+checkpoint
+model.data-00000-of-00001
+model.index
+model.meta
+logs/
